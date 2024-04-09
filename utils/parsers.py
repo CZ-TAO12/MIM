@@ -1,0 +1,30 @@
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-preprocess', type=bool, default=True, help="preprocess dataset")
+parser.add_argument('-data_name', default='memetracker', choices=['weibo', 'memetracker', 'twitter', 'douban'], help="Dataset")
+parser.add_argument('-epoch', type=int, default= 200)
+parser.add_argument('-batch_size', type=int, default = 48, help = 'Batch size')
+parser.add_argument('-d_model', type=int, default= 64, help = 'Model latent variable dimension')
+parser.add_argument('-pos_dim', type=int, default= 8, help = 'Position dimension')
+parser.add_argument('-graph_layer', type=int, default= 1, help = 'The number of graph layers')
+parser.add_argument('-att_head', type=int, default= 8, help = 'The number of attention heads')  
+parser.add_argument('-pos_emb', type=bool, default=True, help= 'position embedding in transformer')
+parser.add_argument('--window', type=int, default=5, help='window size')  
+parser.add_argument('--beta', type=float, default= 1, help='IDP task maginitude')  
+parser.add_argument('--beta2', type=float, default= 0.8, help='KL task maginitude') 
+parser.add_argument('--beta3', type=float, default= 0.2, help='ssl task maginitude')  
+ 
+
+parser.add_argument('-train_rate', type=float, default= 0.8, help='train set division')
+parser.add_argument('-valid_rate', type=float, default= 0.1, help='validation set division')
+parser.add_argument('-n_warmup_steps', type=int, default= 1000, help='parameters of optimizer')
+parser.add_argument('-dropout', type=float, default=0.2, help='dropout rate')
+parser.add_argument('-max_lenth', type=int, default=200)
+parser.add_argument('-seed', type=int, default= 2023, help='seed values')
+
+parser.add_argument('-log', default=None)
+parser.add_argument('-save_path', default= "./output_result/DiffusionPrediction.pt")
+parser.add_argument('-save_mode', type=str, choices=['all', 'best'], default='best')
+parser.add_argument('-no_cuda', action='store_true')
+parser.add_argument('-patience', type=int, default=6, help="control the step of early-stopping")
