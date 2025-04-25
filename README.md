@@ -1,7 +1,7 @@
 # MIM
 
 This repo provides a reference implementation of MIM as described in the paper:
-Enhancing Information Diffusion Prediction with Cross-Cascade Hypergraph and Past-Future Knowledge Distillation
+Disentangling Inter- and Intra-Cascades Dynamics for Information Diffusion Prediction (TKDE)
 
 ## Dependencies
 
